@@ -1,0 +1,13 @@
+SISTEMA DE INVENTARIO - kit de despliegue
+
+Carpetas
+  site/       la aplicación (index.html)
+  server/     servidor (Node 22 + SQLite, sin dependencias)
+  database/   base de datos local de pruebas (inventario.db). En el VPS vive en /opt/inventario/database
+  backups/    respaldos
+
+Probar en su computadora (Node 22+):   node server/server.js   -> http://localhost:3000
+Publicar en el VPS:                    ./deploy.sh --setup   (primera vez)   |   ./deploy.sh
+Respaldo manual a su PC:               ./bajar-respaldo.sh
+El deploy NUNCA sobrescribe la base de datos. Respaldo automático diario en el VPS (30 días).
+Recomendado: proteger con clave (AUTH_USER/AUTH_PASS) y activar HTTPS con un dominio.
